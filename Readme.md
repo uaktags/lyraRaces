@@ -1,7 +1,7 @@
-# Race Module for LyraEngine
+# Race Module for LyraEngine  v1.0.1
 [lyraEngine](http://lyraengine.com/)
 
-Compatible with up to commit: 0cfc6a17f0
+Compatible with up to commit: 9c3356e7a6 6/11/2015
 
 Adds an element of Race for players to choose during Registration. Ultimate goal would be for players to choose a Race, which comes with it's own abilities, to further submerge themselves into the realm of the RPG.
 
@@ -11,13 +11,7 @@ This is not meant to become a fully functioning module that's production ready, 
 
 ## Installation
 
-First you need to add to your Settings.php file:
-***
- 'races' => array(
-        'default' => 1,
-    ),
-***
-This adds \Config::get('races.default') to be pointed at Human. This way you can retroactively turn all Users into Human (RaceID #1). 
+Place into Modules folder and run the file.
 
 Go to <localhost/path>/Races when you're logged in as Root or a User with "canAdminModules" permissions.
 
@@ -30,6 +24,10 @@ Go to <localhost/path>/Races when you're logged in as Root or a User with "canAd
 5. Submit a pull request :D
 
 ## History
+
+###v1.0.1 Cleaner install and a Hook placeholder
+So when you install, it'll create the Configuration needed for Default Race.
+A place holder has been set for playerStats to be hooked into and add the Race Attributes.
 
 ###v1.0.0 Initial Release.
 Installer does work, but there's too many things that need to be hardwritten (settings.php). 
