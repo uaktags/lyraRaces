@@ -12,6 +12,22 @@ class Example extends \Lyra\Abstracts\Hook
 	 */
 	public function playerStats()
 	{
-		//return array('Endurance' => 32, 'Speed'=>31, 'Dexterity'=>11); TEST
+        $module = \App::getModel('Module');
+        if($module->isActive('Races')) {
+            $race = \App::getModel("racePlayers");
+            //$player = \App::getModel('Session')->getPlayerId();
+            $raceAttrs = \App::getModel("raceAttrs");
+            $playerAttrs = \App::getModel('racePlayerAttrs');
+            //$raceid = $race->getPlayer($player);
+            $raceid = $race->getPlayerLoggedIn();
+            $Attrs = $raceAttrs->getByRace($raceid);
+            $result = array();
+            foreach ($Attrs as $key => $Attr) {
+                $val = $playerAttrs->getByID((integer)$Attr['attribute_id']);
+                $result = array_merge($result, array($val => $Attr['value']));
+            }
+
+            return $result;
+        }
 	}
 }
