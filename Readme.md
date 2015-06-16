@@ -1,7 +1,7 @@
-# Race Module for LyraEngine  v1.0.1
+# Race Module for LyraEngine  v1.0.2
 [lyraEngine](http://lyraengine.com/)
 
-Compatible with up to commit: 9c3356e7a6 6/11/2015
+Compatible with up to commit: 232754c5c2 /11/2015
 
 Adds an element of Race for players to choose during Registration. Ultimate goal would be for players to choose a Race, which comes with it's own abilities, to further submerge themselves into the realm of the RPG.
 
@@ -24,6 +24,10 @@ Go to <localhost/path>/Races when you're logged in as Root or a User with "canAd
 5. Submit a pull request :D
 
 ## History
+
+###v1.0.2 Better checks and balances, and features working
+Added a check to see if the Race Module is active, this prevents the Hooks from going prematurely.
+Expanded functionality with 3 models to handle Attributes and Races.
 
 ###v1.0.1 Cleaner install and a Hook placeholder
 So when you install, it'll create the Configuration needed for Default Race.
