@@ -10,7 +10,7 @@ use	\InvalidArgumentException;
  * Player
  * @see Library\Model
  */
-class racePlayers extends Model
+class raceAttrs extends Model
 {
 	/**
 	 * Random state
@@ -20,7 +20,7 @@ class racePlayers extends Model
 	
 	protected $useCaching = false;
 
-    protected $tableName = 'race_players';
+    protected $tableName = 'race_attributes';
 	
 	/**
 	 * create
@@ -56,29 +56,19 @@ class racePlayers extends Model
 
 	}
 
-    public function getPlayer($data)
+    public function getByRace($data)
     {
         if(is_int($data))
         {
-            return parent::find($data, 'player_id', 'race_id');
+            return parent::findall($data, 'race_id');
         }elseif(is_string($data)){
-            die('Search By USERNAME not set yet');
+            die('Search By RaceTitle not set yet');
         }elseif(is_array($data))
         {
-            if(array_key_exists('player_id', $data)){
-                return $this->getPlayer($data['player_id']);
+            if(array_key_exists('race_id', $data)){
+                return $this->getByRace((integer)$data['race_id']);
             }
         }
-    }
-
-    public function getPlayerLoggedIn()
-    {
-        $session = \App::getModel('Session');
-        if($session->isLoggedIn()) {
-            $player = $session->getPlayerId();
-           return $this->getPlayer($player);
-        }
-        return false;
     }
 
 	public function getAllAssigned()
