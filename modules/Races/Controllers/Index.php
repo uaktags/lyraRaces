@@ -43,6 +43,8 @@ class Index extends Controller
                 $settings->create($default);
                 $settings->buildCache();
                 $settings->updateConfig();
+                $module = \App::getModel('Module');
+                $module->create(array('title'=>'Races'));
             } catch(\Exception  $e) {
                 die($e->getMessage());
                 \View::setMessage('Please check your database configurations', 'fail');
